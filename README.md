@@ -9,5 +9,5 @@ This is a react native modal component.
   functionModal=false // If you want a another button for using funtion set this 'true'
   visibleState={modalVisible} // Visible state
   onClose={() => setModalVisible(false)} // Close modal
-      />
+/>
 ```
