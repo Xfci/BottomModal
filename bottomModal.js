@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Modal, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import ReSendVerification from '../scripts/reSendVerification';
+// If you are going to use a different function in the modal, import it like this 'import ReSendVerification from '../scripts/reSendVerification';'
 
-const BottomModal = ({ description, image, visibleState, functionModal, email, password, onClose }) => {
+// If you need another prop add here
+const BottomModal = ({ description, image, visibleState, functionModal, onClose }) => {
     return (
         <Modal
             animationType="slide"
@@ -17,17 +18,17 @@ const BottomModal = ({ description, image, visibleState, functionModal, email, p
                     <TouchableOpacity
                         style={[styles.buttonModal]}
                         onPress={onClose}>
-                        <Text style={styles.textStyle}>Devam Et</Text>
+                        <Text style={styles.textStyle}>Ok</Text> // Button text
                     </TouchableOpacity>
                     {
                         functionModal ?
                             <TouchableOpacity
                                 style={styles.buttonModal}
-                                onPress={[{ onClose }, ReSendVerification(email, password)]}>
-                                <Text style={styles.textStyle}>Tekrar Gönder</Text>
+                                onPress={[{ onClose }]}> // Add here function name
+                                <Text style={styles.textStyle}>Function Button</Text>
                             </TouchableOpacity> : null
                     }
-                    <Image source={image} style={styles.banner3} />
+                    <Image source={image} style={styles.banner} />
                 </View>
             </View>
         </Modal>
@@ -76,9 +77,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 25,
     },
-    banner3: {
+    banner: {
         width: '100%',
-        height: '70%',
+        height: '70%', // Chenge image properties
         borderTopRightRadius: 35,
         borderTopLeftRadius: 35,
         bottom: -10,
